@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feladat 01</title>
+    <link   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+            rel="stylesheet" 
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+            crossorigin="anonymous">
+</head>
+<body style="background-color:rgb(243, 243, 243);">
+    <div class="container">
+        <div    class="row align-items-center text light text-center"
+                style="min-height: 100vh;">
+
+                <div class="col-12">
+                    <h1>Gondoltam egy számra (1-100). Kitalálod?</h1>
+                    <label for="input" class="m-2">Írd be a tippedet:</label>
+                    <input type="number" name="szam" id="input" class="form-control">
+                    <button onclick="GondolSzam()" id="test" class=" m-4 btn btn-primary btn-lg">Teszt</button>
+                    <button onclick="UjSzam()" id="UjSzam" class=" m-4 btn btn-primary btn-lg">Új szám</button>
+                    <p id="p" class="fs-1 m-4"></p>
+                </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+            crossorigin="anonymous">
+    </script>
+
+    <script>
+
+
+        let szam = Math.floor(Math.random() * 101 ) +1 ;
+
+        function GondolSzam(){
+            let tipp = document.getElementById("input").value;
+            let valasz = document.getElementById("p").innerHTML;
+            let gondoltSzam = szam;
+            if (tipp != gondoltSzam){
+                document.getElementById("p").innerHTML= "Sajnos, most nem sikerült. Próbáld újra!"
+            }
+            else{
+                document.getElementById("p").innerHTML= "Nagyszerű, a gondolt szám valóban " + gondoltSzam + " volt.";
+                document.getElementById("test").disabled = true;
+            }
+        }
+
+        function UjSzam(){
+            szam = Math.floor(Math.random() * 101) + 1;
+            document.getElementById("p").innerHTML= "Kigondoltam!"
+            document.getElementById("test").disabled = false;
+        }
+
+    </script>
+</body>
+</html>
